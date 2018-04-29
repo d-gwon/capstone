@@ -1,0 +1,25 @@
+<div>
+  <div>
+      <button (click)="changeDay(-1)">pre</button>
+      {{dateNow}}
+      <button (click)="changeDay(1)">next</button>
+  </div>
+ 
+  <div class="col-md-1">
+      <div class="tag">
+      </div>
+  </div>
+  <div style="display: block" class="col-md-11">
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+  </div>
+
+  <div>count/hour</div>
+  <!-- <button (click)="randomize()">Update</button> -->
+</div>
