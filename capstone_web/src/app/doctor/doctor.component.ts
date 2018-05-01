@@ -16,28 +16,26 @@ export class DoctorComponent implements OnInit {
   }
 
   data_load(){
-    //this.http.post('/v/patient/info',{})
-    //.subscribe((data:any)=>{
-    let data =[{
-      no:'1',
-      name:"kim",
-      type:2,
-      sex:"man",
-      brithday: 704024,
-      score:3
-    },
-    {
-      no:'2',
-      name:"kimsang",
-      type:2,
-      sex:"man",
-      brithday: 704024,
-      score:3
-    }] 
-    this.data = data; 
-  //  }
-  console.log(this.data);
-
+    this.http.get('/v/researcher',{})
+    .subscribe((item:any)=>{
+    // let data =[{
+    //   no:'1',
+    //   name:"kim",
+    //   type:2,
+    //   sex:"man",
+    //   brithday: 704024,
+    //   score:3
+    // },
+    // {
+    //   no:'2',
+    //   name:"kimsang",
+    //   type:2,
+    //   sex:"man",
+    //   brithday: 704024,
+    //   score:3
+    // }] 
+    this.data = item; 
+    })
   }//end data_load
   person(no){
     this.router.navigate(['personal',{no:no}])

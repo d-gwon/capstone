@@ -13,6 +13,10 @@ export class LoginComponent implements OnInit {
   constructor(private router:Router,private http:HttpClient) { 
     // this.check();
   }
+ 
+  ngOnInit() {
+  } 
+  
   check(){
     if(localStorage.getItem('currentUser')){
       let data = JSON.parse(localStorage.getItem('currentUser'))
@@ -20,27 +24,21 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['doctor'])
       else(data.type == 2)
         this.router.navigate(['patient'])   
-      
     };
   }
 
   login(){
-     //this.http.post('/v/login',{})
-     //.subscribe((data:any)=>{
-       let data = {
-         name:"kim",
-         type:2
-       }
-      localStorage.setItem('currentUser', JSON.stringify({name:data.name,type:data.type}));
+     this.http.post('/v/login',{})
+     .subscribe((data:any)=>{
+      //  let data = {
+      //    name:"kim",
+      //    type:2
+      //  }
+       localStorage.setItem('currentUser', JSON.stringify({name:data.name,type:data.type}));
       if(data.type == 1)
         this.router.navigate(['doctor'])
       else(data.type == 2)
         this.router.navigate(['patient'])      
-     //})
-    
+     })
   }
-
-  ngOnInit() {
-  }
-
 }

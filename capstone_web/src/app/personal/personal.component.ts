@@ -12,7 +12,10 @@ import { HttpClient } from '@angular/common/http';
 export class PersonalComponent implements OnInit {
   id:number;
   data:any;
+  no:any;
+
   constructor(private route: ActivatedRoute,private router:Router, private http:HttpClient) { }
+
 
   ngOnInit() { 
     this.route.params.subscribe(params => {
@@ -24,18 +27,21 @@ export class PersonalComponent implements OnInit {
   }
 
   data_load(){
-    //this.http.post('/v/patient/info?id=${id}',{})
-    //.subscribe((data:any)=>{
-      let data ={
-        no:'1',
-        name:"kim",
-        type:2,
-        sex:"man",
-        brithday: 704024,
-        score:3
-      } 
+    let body = {
+      no:this.no
+    }
+    this.http.post('/v/patient/info',body)
+    .subscribe((data:any)=>{
+      // let data ={
+      //   no:'1',
+      //   name:"kim",
+      //   type:2,
+      //   sex:"man",
+      //   brithday: 704024,
+      //   score:3
+      // } 
       this.data = data; 
-    //  }
+      })
   }
 
   navi(){
