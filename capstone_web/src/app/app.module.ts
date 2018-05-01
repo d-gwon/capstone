@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { TestComponent } from './test/test.component';
 import { ChartsModule } from 'ng2-charts';
 import { Test2Component } from './test2/test2.component';
-import { CountComponent } from './count/count.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpService } from '../services/http.service';
 import { ServerAddr } from '../services/server.addr';
@@ -26,6 +25,7 @@ import { XavgComponent } from './xavg/xavg.component';
 import { AccumulatedComponent } from './accumulated/accumulated.component';
 import { HomeComponent } from './home/home.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { InfoComponent } from './info/info.component';
 
 
 const appRoutes: Routes = [
@@ -33,7 +33,9 @@ const appRoutes: Routes = [
   {path: '', component: LoginComponent },
   {path: 'doctor', component:  DoctorComponent},
   {path: 'personal', component:  PersonalComponent},
-  {path: 'patient', component:  HomeComponent}
+  {path: 'patient', component:  HomeComponent},
+  {path: 'info', component:  InfoComponent}
+
 ]
 
 @NgModule({
@@ -42,12 +44,12 @@ const appRoutes: Routes = [
     HomeComponent,
     TestComponent,
     Test2Component,
-    CountComponent,
     CalendarComponent,
     LoginComponent,
     DoctorComponent,
     XavgComponent,
     AccumulatedComponent,
+    InfoComponent,
     PersonalComponent
     ],
   imports: [

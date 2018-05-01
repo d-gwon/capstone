@@ -23,6 +23,7 @@ import {
   CalendarEventTimesChangedEvent
 } from 'angular-calendar';
 import { HttpService } from '../../services/http.service';
+import { DatePipe } from '@angular/common';
 
 const colors: any = {
   red: {
@@ -113,18 +114,21 @@ export class CalendarComponent implements OnInit {
 
   activeDayIsOpen: boolean = true;
 
-  constructor(private modal: NgbModal,private http:HttpService) {
+  constructor(private modal: NgbModal,private http:HttpService,public datepipe: DatePipe) {
     this.activeDayIsOpen == false;
     
   }
   ngOnInit(){
     this.load();
 
-    
+    //console.log(Date.now())
     // this.addEvent();
   }
   load(){
-      return  this.http.get(`/v/calendar`)
+    let year =this.datepipe.transform(this.viewDate, 'yyyy');
+    let month =this.datepipe.transform(this.viewDate, 'mm');
+    let day = this.datepipe.transform(this.viewDate, 'dd');
+      return  this.http.get(`/v/calendar?date=${year}-${month}-01`)
     .subscribe(items=>{
       this.data = items.json()
       for(let i = 0 ; i<this.data.length ; i++){

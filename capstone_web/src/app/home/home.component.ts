@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
+// import { InfoComponent} './info.component';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +12,10 @@ export class HomeComponent implements OnInit {
   data:any;
   Morris
   constructor(private router:Router, private http:HttpClient) { }
+
+  info(){
+    this.router.navigate(['info'])
+  }
 
   ngOnInit() {
     //this.load();
@@ -43,3 +47,4 @@ changUrl(str){
 }
 
 }
+

@@ -30,11 +30,7 @@ export class LoginComponent implements OnInit {
   login(){
      this.http.post('/v/login',{})
      .subscribe((data:any)=>{
-      //  let data = {
-      //    name:"kim",
-      //    type:2
-      //  }
-       localStorage.setItem('currentUser', JSON.stringify({name:data.name,type:data.type}));
+       localStorage.setItem('currentUser', JSON.stringify({passward:data.pwd,type:data.type}));
       if(data.type == 1)
         this.router.navigate(['doctor'])
       else(data.type == 2)

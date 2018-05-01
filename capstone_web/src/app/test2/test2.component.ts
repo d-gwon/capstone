@@ -45,14 +45,6 @@ export class Test2Component implements OnInit {
       this.lineChartData[2].data[i] = this.data[i].z_amp;
       }
      
-      // [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7]
-
-      //  for(var i=0; i<20; i++){
-      //  this.label.push(this.data[i].timestamp);
-      //    console.log(this.lineChartLabels[i]);
-      //    console.log(this.label[i]);
-
-      //  }
     console.log("ttttt");
    // console.log(this.lineChartLabels[8]);
     // this.x_axis();
@@ -84,17 +76,6 @@ export class Test2Component implements OnInit {
       }
       this.lineChartLabels = Arr;
 
-      // this.lineChartLabels = 
-      // [this.data[0],this.data[1],this.data[2],this.data[3],this.data[4],this.data[5],this.data[6],
-      // this.data[7],this.data[8]]
-
-     
-      // [this.data[0].timestamp,this.data[1].timestamp,this.data[2].timestamp,
-      //  this.data[3].timestamp,this.data[4].timestamp,this.data[5].timestamp,
-      //  this.data[6].timestamp,this.data[7].timestamp,this.data[8].timestamp,
-      //  this.data[9].timestamp,this.data[10].timestamp,this.data[11].timestamp,
-      //  this.data[12].timestamp,this.data[13].timestamp,this.data[14].timestamp];
-       
   })
   }
   // public lineChartData:Array<any> = [
