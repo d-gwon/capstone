@@ -97,12 +97,14 @@ router.get('/count', function(req, res) {
         SELECT 
     DATE_FORMAT(a.timestamp, '%Y-%m-%d %H') m, (select count(fft_no) from fft b WHERE
             m = DATE_FORMAT(b.timestamp, '%Y-%m-%d %H') and
-            b.user_no=(?)a 
+            b.user_no=(?) 
                 AND ((b.x_hz BETWEEN 0 AND 6)
                 OR (b.y_hz BETWEEN 1 AND 6)
                 OR (b.z_hz BETWEEN 1 AND 6))) "count"
 FROM
     fft a
+    where 
+            DATE_FORMAT(a.timestamp, '%Y-%m-%d') = (?)
     
     GROUP BY m`;
 
@@ -428,7 +430,7 @@ router.post('/patient/info', (req, res) =>{
 router.get('/researcher', (req,res) =>{
 
     //let user_no = req.body.user_no;
-    let sql = 'select * from user';
+    let sql = 'select * from user where type = 0';
 
     pool
         .query(sql)
@@ -446,16 +448,18 @@ router.get('/researcher', (req,res) =>{
 
 router.post('/sum', (req,res) =>{
 
-    let user_no = req.body.user_no;
+    let day = req.query.day;
+    let user_no = req.query.user_no;
+   // let day=dateFormat(date, "yyyy-mm-dd");
     let sql = `select count(fft_no) 'sum' from fft WHERE
-            DATE_FORMAT(timestamp, '%Y-%m-%d %H') and
+            DATE_FORMAT(timestamp, '%Y-%m-%d')=(?) and
             user_no=(?) 
                 AND ((x_hz BETWEEN 0 AND 6)
                 OR (y_hz BETWEEN 1 AND 6)
                 OR (z_hz BETWEEN 1 AND 6))`
 
     pool
-        .query(sql,[user_no])
+        .query(sql,[day,user_no])
         .then(function(rows){
             console.log(rows);
             res.send(rows);
@@ -471,14 +475,16 @@ router.post('/sum', (req,res) =>{
 
 router.post('/average', (req,res) =>{
 
-    let user_no = req.body.user_no;
-    let sql = `select sum(x_amp) /count(fft_no) "avg" from fft WHERE
-            DATE_FORMAT(timestamp, '%Y-%m-%d %H') and
+    let day = req.query.day;
+    let user_no = req.query.user_no;
+    //let day=dateFormat(date, "yyyy-mm-dd");
+    let sql = `select ifnull(sum(x_amp) /count(fft_no),"0") "avg" from fft WHERE
+            DATE_FORMAT(timestamp, '%Y-%m-%d')=(?) and
             user_no=(?) 
                 AND (x_hz BETWEEN 4 AND 6)`
 
     pool
-        .query(sql,[user_no])
+        .query(sql,[day,user_no])
         .then(function(rows){
             console.log(rows);
             res.send(rows);
