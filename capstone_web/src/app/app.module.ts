@@ -26,6 +26,7 @@ import { AccumulatedComponent } from './accumulated/accumulated.component';
 import { HomeComponent } from './home/home.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { InfoComponent } from './info/info.component';
+import { AddComponent } from './add/add.component';
 
 
 const appRoutes: Routes = [
@@ -34,7 +35,9 @@ const appRoutes: Routes = [
   {path: 'doctor', component:  DoctorComponent},
   {path: 'personal', component:  PersonalComponent},
   {path: 'patient', component:  HomeComponent},
-  {path: 'info', component:  InfoComponent}
+  {path: 'info', component:  InfoComponent},
+  {path: 'add', component:  AddComponent}
+
 
 ]
 
@@ -50,7 +53,8 @@ const appRoutes: Routes = [
     XavgComponent,
     AccumulatedComponent,
     InfoComponent,
-    PersonalComponent
+    PersonalComponent,
+    AddComponent
     ],
   imports: [
     BrowserModule,

@@ -29,21 +29,12 @@
             <li class="xn-title">Navigation</li>
       
             <li class="xn-title">Components</li>
+            <!-- navigation icon  -->
             <li class="xn-openable">
-                <a href="#"><span class="fa fa-cogs"></span> <span class="xn-text">UI Kits</span></a>                        
-                <ul>
-                    <li><a href="ui-widgets.html"><span class="fa fa-heart"></span> Widgets</a></li>                            
-                    <li><a href="ui-elements.html"><span class="fa fa-cogs"></span> Elements</a></li>
-                    <li><a href="ui-buttons.html"><span class="fa fa-square-o"></span> Buttons</a></li>                            
-                    <li><a href="ui-panels.html"><span class="fa fa-pencil-square-o"></span> Panels</a></li>
-                    <li><a href="ui-icons.html"><span class="fa fa-magic"></span> Icons</a><div class="informer informer-warning">+679</div></li>
-                    <li><a href="ui-typography.html"><span class="fa fa-pencil"></span> Typography</a></li>
-                    <li><a href="ui-portlet.html"><span class="fa fa-th"></span> Portlet</a></li>
-                    <li><a href="ui-sliders.html"><span class="fa fa-arrows-h"></span> Sliders</a></li>
-                    <li><a href="ui-alerts-popups.html"><span class="fa fa-warning"></span> Alerts &amp; Popups</a></li>                            
-                    <li><a href="ui-lists.html"><span class="fa fa-list-ul"></span> Lists</a></li>
-                    <li><a href="ui-tour.html"><span class="fa fa-random"></span> Tour</a></li>
-                </ul>
+                    <a href="/personal#test"><span class="fa fa-bar-chart-o"></span><span class="xn-text"></span></a>   
+                    <a href="/personal#test2"><span class="fa fa-eye"></span><span class="xn-text"></span></a>   
+                    <a class="active" (click)="move_add()"><span class="fa fa-plus"></span> <span class="xn-text"></span></a>          
+                    <a href="#"><span class="fa fa-cogs"></span> <span class="xn-text"></span></a>     
             </li>                   
         </ul>
         <!-- END X-NAVIGATION -->
@@ -55,17 +46,12 @@
         
         <!-- START X-NAVIGATION VERTICAL -->
         <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
-            <!-- SEARCH -->
-            <li class="xn-search">
-                <form role="form">
-                    <input type="text" name="search" placeholder="Search...">
-                </form>
-            </li>   
-            <!-- END SEARCH -->
+
             <!-- SIGN OUT -->
             <li class="xn-icon-button pull-right">
                 <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>                        
-            </li> 
+            </li>
+
             <!-- END SIGN OUT -->
         </ul>
         <!-- END X-NAVIGATION VERTICAL -->                     
@@ -73,7 +59,7 @@
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
                     <li><a href="#">Home</a></li>                    
-                    <li class="active" (click)="navi()">Doctor</li>
+                    <li class="active" (click)="move_doctor()">Doctor</li>
                     <li class="active">Personal Information</li>
                 </ul>
                 <!-- END BREADCRUMB -->                       
@@ -105,26 +91,24 @@
                                     <!-- START WIDGET CLOCK -->
                             <div class="panel panel-default">
                                 <div class ="inform">
-                                  <h1>{{data.name}}</h1>
+                                  <!-- <h1>{{data.name}}</h1>
                                   <h3>Sex : {{data.sex}}</h3>
                                   <h3>Brithday : {{data.brithday}}</h3>
-                                  <h3>Parkinso's Score : {{data.score}}</h3>
+                                  <h3>Parkinso's Score : {{data.score}}</h3> -->
                                 </div>                                       
                             </div>                        
                             <!-- END WIDGET CLOCK -->
                                  </div>
                              </div>
                         </div>
-                    </div>
-                    <!-- END WIDGETS -->                    
+                                  
                     
                     <div class="row">
                         <div class="col-md-12">
-                            
                             <!-- START USERS ACTIVITY BLOCK -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <div class="panel-title-box">
+                                    <div class="panel-title-box"  id = "test">
                                         <h3>The daily count</h3>
                                         <span>Parkinson's tremor during the day</span>
                                     </div>                                    
@@ -133,10 +117,7 @@
                                         <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
                                         <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cog"></span></a>                                        
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span> Collapse</a></li>
-                                                <li><a href="#" class="panel-remove"><span class="fa fa-times"></span> Remove</a></li>
-                                            </ul>                                        
+                                                                                    
                                         </li>                                        
                                     </ul>                                    
                                 </div>                                
@@ -161,42 +142,19 @@
 							</div>
 						</div>
                         
-                        <div class="col-md-12">
-                            
-                            <!-- START SALES & EVENTS BLOCK -->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <div class="panel-title-box">
-                                        <h3> The FFT result</h3>
-                                        <span>Power of hand tremble for a specific time</span>
-                                    </div>
-                                    <ul class="panel-controls" style="margin-top: 2px;">
-                                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
-                                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cog"></span></a>                                        
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span> Collapse</a></li>
-                                                <li><a href="#" class="panel-remove"><span class="fa fa-times"></span> Remove</a></li>
-                                            </ul>                                        
-                                        </li>                                        
-                                    </ul>
-                                </div>
-                                <div class="panel-body padding-0">
-                                    <!-- <div class="chart-holder" id="dashboard-line-1" style="height: 200px;"></div> -->
-                                    <app-test2></app-test2>
-                                </div>
-                                
-                            </div>
-                            <!-- END SALES & EVENTS BLOCK -->
-                            
+                        <div class="col-md-12" id = "test2">
+
+                                   <app-test2 ></app-test2>
+\
                         </div>
             
-                    
+                    </div>
+                   
                 </div>
                 <!-- END PAGE CONTENT WRAPPER -->                                
             </div>            
-            <!-- END PAGE CONTENT -->
+            <!-- END PAGE CONTENT --> 
+            <!-- END WIDGETS --> 
         </div>
         <!-- END PAGE CONTAINER -->
             

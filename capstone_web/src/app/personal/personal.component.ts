@@ -13,6 +13,7 @@ export class PersonalComponent implements OnInit {
   id:number;
   data:any;
   no:any;
+  Morris
 
   constructor(private route: ActivatedRoute,private router:Router, private http:HttpClient) { }
 
@@ -44,7 +45,14 @@ export class PersonalComponent implements OnInit {
       })
   }
 
-  navi(){
+  move_doctor(){
     this.router.navigate(['doctor'])
+  }
+
+  move_add(){
+    this.router.navigate(['add'])
+  }
+  changUrl(str){
+    this.router.navigate([str])
   }
 }

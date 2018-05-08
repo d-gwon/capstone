@@ -1,8 +1,20 @@
-<!-- 두번째 fft 그래프 -->
-<div class="row">
-  <div class="col-md-24">
-    <div style="display: block;">
-    <canvas baseChart width="400" height="400"
+   <!-- START SALES & EVENTS BLOCK -->
+  <div class="panel panel-default">
+           <div class="panel-heading">
+             <div class="panel-title-box" >
+                <h3> The FFT result</h3>
+                <span>Power of hand tremble for a specific time</span>
+            </div>
+            <ul class="panel-controls" style="margin-top: 2px;">
+                <li><a href="/personal#test2" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>                              
+            </ul>
+           </div>
+         <div class="panel-body padding-0">
+    <div class="row">
+     <div class="col-md-24">
+       <div style="display: block;">
+        <canvas baseChart width="400" height=150%
                 [datasets]="lineChartData"
                 [labels]="lineChartLabels"
                 [options]="lineChartOptions"
@@ -11,17 +23,10 @@
                 [chartType]="lineChartType"
                 (chartHover)="chartHovered($event)"
                 (chartClick)="chartClicked($event)"></canvas>
+        </div>
+
+        
     </div>
-  <!-- </div>
-  <div class="col-md-6" style="margin-bottom: 10px">
-    <table class="table table-responsive table-condensed">
-      <tr>
-        <th *ngFor="let label of lineChartLabels">{{label}}</th>
-      </tr>
-      <tr *ngFor="let d of lineChartData">
-        <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
-      </tr>
-    </table>
-    <button (click)="randomize()">CLICK</button>
-  </div> -->
-</div>
+   </div>
+                                
+ </div>

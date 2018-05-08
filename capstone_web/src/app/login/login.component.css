@@ -31,7 +31,7 @@ h1{
     border: 0;
     outline: none;
     border-radius: 0;
-    padding: 15px 0;
+    margin-top: 10px;
     font-size: 2rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -40,9 +40,12 @@ h1{
     color: #ffffff;
     transition: all 0.5s ease;
     -webkit-appearance: none;
+    padding: 5px 10px;
   }
 
+
   .form {
+    margin-top: 30%;
     background: #13232f;
     padding: 40px;
     max-width:600px;

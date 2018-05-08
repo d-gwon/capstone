@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgIf } from '@angular/common';
 import { HttpService } from '../../services/http.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-test2',
@@ -13,60 +14,108 @@ export class Test2Component implements OnInit {
   data:any;
   fft_no:any;
   label:any[] = [];
-  constructor(private http:HttpService) { 
-      
-      
+  date:any;
+  dateNow:any;
+  user_no:any;
+
+  constructor(private http:HttpService,private datePipe: DatePipe) { 
   }
 
   ngOnInit() { 
-    // this.load(); 
-    this.x_axis(); 
+     this.load(); 
+   
   }
-
-  load(){
-    this.http.get('/')
-    .subscribe((items:any)=>{
-      this.data = items.json();
-      this.fft_no = items[0].timestamp;
-
-  //    this.fft_no = this.data.fft_no;
-
-      /* y axi */
-      for(var i = 0; i < 15 ; i++)
-      {
-      this.lineChartData[0].data[i] = this.data[i].x_amp;
-      }
-      for(var i = 0; i < 15 ; i++)
-      {
-      this.lineChartData[1].data[i] = this.data[i].y_amp;
-      }
-      for(var i = 0; i < 15 ; i++)
-      {
-      this.lineChartData[2].data[i] = this.data[i].z_amp;
-      }
-     
-    console.log("ttttt");
-   // console.log(this.lineChartLabels[8]);
-    // this.x_axis();
-    
-    })
-    
-  }
-
   
-  x_axis(){
-
-    this.http.get('/v/fft')
-    .subscribe((items:any)=>{
-      this.data = items.json();
-      //this.fft_no = items[0].timestamp;
-
+  load(){
+    let data = [
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	542,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	908,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	876,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	344,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:987,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	345,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	542,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	908,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	876,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	344,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:987,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	345,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	542,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	908,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	876,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	344,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:987,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	345,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	542,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	908,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	876,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	344,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:987,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	345,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	542,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	908,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	876,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	344,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:987,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	345,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	542,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	908,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	876,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	344,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:987,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	345,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2}
+    ];
+    // this.http.get('/v/fft')
+    // .subscribe((items:any)=>{
+    //   this.data = items.json();
+    //   //this.fft_no = items[0].timestamp;
+    this.data = data; 
       console.log(this.data);
-      /* x axi */
+      let len = this.data.length;
+      if(len > 60)
+      len = 60;
+      /* x axi*/
       let Arr:Array<any>=[];
-      for(let i =0; i< this.data.length; i++)
+      for(let i = 0; i < len ; i++)
       {
-        // console.log(this.data[i])
+        
+         console.log(this.data[i])
         this.lineChartData[0].data[i] = this.data[i].x_amp;
         this.lineChartData[1].data[i] = this.data[i].y_amp;
         this.lineChartData[2].data[i] = this.data[i].z_amp;
@@ -76,13 +125,8 @@ export class Test2Component implements OnInit {
       }
       this.lineChartLabels = Arr;
 
-  })
+  //})
   }
-  // public lineChartData:Array<any> = [
-  //   {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
-  //   {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'},
-  //   {data: [18, 48, 77, 9, 100, 27, 40], label: 'Series C'}
-  // ];
   public lineChartData:Array<any> = [
     {data: [], label: 'acccel_x'},
     {data: [], label: 'acccel_y'},
@@ -90,14 +134,13 @@ export class Test2Component implements OnInit {
 
   ];
 
-     //public lineChartLabels:Array<any> = ['January2', 'February', 'March', 'April', 'May', 'June', 'July'];
-  // public lineChartLabels:Array<any> = this.label;
   public lineChartLabels:Array<any> = [];
  
   
   public lineChartOptions:any = {
     responsive: true
   };
+
   public lineChartColors:Array<any> = [
     { // grey
       backgroundColor: 'rgba(148,159,177,0.2)',
@@ -137,5 +180,29 @@ export class Test2Component implements OnInit {
     console.log(e);
   }
 
+  changetime(day){
+    this.date.setDate( this.date.getDate() + day );
+    this.dateNow = this.datePipe.transform(this.date,"yyyy-MM-dd");
+//    this.count(this.dateNow);  
+  }
+  // count(date){
+  //   this.http.get(`/v/count?date=${date}&user_no=${this.user_no}`)    
+  //   .subscribe((items:any)=>{
+  //     this.data = items.json();
+  //     if(this.data.length == 0){
+  //       this.barChartData = [{data:[0], label:'Parkinson\'tremor' }];
+  //     } else {
+  //       console.log(this.data)
 
+  //       let Arr:any[]=[{data:[0], label:'Parkinson\'tremor' }];
+
+  //       for(let i=0; i<this.data.length; i++)
+  //       {
+  //         Arr[0].data.push(this.data[i].count);
+  //       }
+        
+  //       this.barChartData = Arr;
+  //       }
+  //   })
+  // }
 }

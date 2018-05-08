@@ -1,0 +1,40 @@
+.text{
+    width: 80%;
+    height: 100%;
+    padding: 5px 10px;
+    background: none;
+    background-image: none;
+    border: 1px solid #a0b3b0;
+    color:black;
+    text-align: center;
+}
+li { list-style-type : none }
+.box{
+    background: #13232f;
+    padding: 30px;
+    max-width:70%;
+    margin:10% auto;
+    border-radius:4px;
+    box-shadow:0 4px 10px 4px rgba( #13232f,.3);
+}
+h1{
+    color:white;
+}
+.profile{
+    width: 60%
+}
+.button-block {
+    width: 100%;
+    border: 0;
+    outline: none;
+    border-radius: 0;
+    padding: 15px 0;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    background: #1ab188;
+    color: #ffffff;
+    transition: all 0.5s ease;
+    -webkit-appearance: none;
+  }
