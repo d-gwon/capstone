@@ -11,6 +11,7 @@ describe('Test2Component', () => {
       declarations: [ Test2Component ]
     })
     .compileComponents();
+    
   }));
 
   beforeEach(() => {

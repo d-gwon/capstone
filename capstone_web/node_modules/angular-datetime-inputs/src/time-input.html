@@ -1,0 +1,42 @@
+<div class="datetime-input time">
+  <div ng-click="toggleEditPopover()"
+    class="display"
+    ng-class="{'active': !!selected, 'warning': !!warning, '{{cssClass}}': !!cssClass}">
+    <div class="time" ng-bind="time.format(timeFormat || 'HH : mm : ss')"></div>
+    <div ng-if="!time" class="placeholder" ng-bind="placeholder"></div>
+  </div>
+  <div class="edit-popover" ng-show="!!selected">
+    <div class="header" ng-bind="selected.format('DD MMMM YYYY')"></div>
+    <div class="timer">
+      <div class="timer-hours"
+        scroll-up="update(selected.clone().add(hourStep || 1, 'hours'))"
+        scroll-down="update(selected.clone().subtract(hourStep || 1, 'hours'))">
+        <div class="arrow arrow-up" ng-click="update(selected.clone().add(hourStep || 1, 'hours'))"></div>
+        <span ng-bind="selected.format('HH')"></span>
+        <div class="arrow arrow-down" ng-click="update(selected.clone().subtract(hourStep || 1, 'hours'))"></div>
+      </div>
+      <div class="timer-divider">:</div>
+      <div class="timer-minutes"
+        scroll-up="update(selected.clone().add(minuteStep || 1, 'minutes'))"
+        scroll-down="update(selected.clone().subtract(minuteStep || 1, 'minutes'))">
+        <div class="arrow arrow-up" ng-click="update(selected.clone().add(minuteStep || 1, 'minutes'))"></div>
+        <span ng-bind="selected.format('mm')"></span>
+        <div class="arrow arrow-down" ng-click="update(selected.clone().subtract(minuteStep || 1, 'minutes'))"></div>
+      </div>
+      <div class="timer-divider">:</div>
+      <div class="timer-seconds"
+        scroll-up="update(selected.clone().add(secondStep || 1, 'seconds'))"
+        scroll-down="update(selected.clone().subtract(secondStep || 1, 'seconds'))">
+        <div class="arrow arrow-up" ng-click="update(selected.clone().add(secondStep || 1, 'seconds'))"></div>
+        <span ng-bind="selected.format('ss')"></span>
+        <div class="arrow arrow-down" ng-click="update(selected.clone().subtract(secondStep || 1, 'seconds'))"></div>
+      </div>
+    </div>
+    <div class="clear-button" ng-if="!!time && allowClear">
+      <div ng-click="update()" ng-bind="clearText || 'Clear'"></div>
+    </div>
+    <div class="close-button">
+      <div ng-click="close()" ng-bind="closeText || 'Close'"></div>
+    </div>
+  </div>
+</div>

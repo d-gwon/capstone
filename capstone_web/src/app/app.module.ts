@@ -38,7 +38,6 @@ const appRoutes: Routes = [
   {path: 'info', component:  InfoComponent},
   {path: 'add', component:  AddComponent}
 
-
 ]
 
 @NgModule({

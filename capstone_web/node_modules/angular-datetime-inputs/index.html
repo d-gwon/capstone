@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="ExampleApp">
+<head>
+  <title>Datetime input UI element for AngularJS</title>
+  <link rel="stylesheet" type="text/css" href="dist/datetime-inputs.min.css">
+  <meta name="viewport" content="width=500,user-scalable=0">
+  <style>
+    body {
+      box-sizing: border-box;
+      width: 500px;
+      height: 100vh;
+      min-height: 100vh;
+      margin: 0;
+      padding: 15px;
+      color: #333;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body ng-controller="MainCtrl">
+
+  <h1>Date</h1>
+  <date-input date="now" on-change="print(now)" placeholder="Click Me"></date-input>
+
+  <br />
+  <br />
+  <br />
+
+  <h1>Time</h1>
+  <time-input time="now" on-change="print(now)" placeholder="Click Me"></time-input>
+
+  <br />
+  <br />
+  <br />
+
+  <h1>Datetime</h1>
+  <datetime-input datetime="now" on-change="print(now)" placeholder="Click Me"></datetime-input>
+
+  <script src="https://unpkg.com/moment@2.13.0/min/moment.min.js" charset="utf-8"></script>
+  <script src="https://unpkg.com/angular@1.5.6/angular.min.js" charset="utf-8"></script>
+  <script src="https://unpkg.com/angular-scroll-events@0.0.3/dist/scroll-events.min.js" charset="utf-8"></script>
+
+  <script src="dist/datetime-inputs.min.js"></script>
+
+  <script>
+    angular.module('ExampleApp', ['g1b.datetime-inputs']).
+      controller('MainCtrl', function ($scope) {
+        $scope.print = function (datetime) {
+          console.log('datetime', datetime);
+        };
+      });
+  </script>
+</body>
+</html>

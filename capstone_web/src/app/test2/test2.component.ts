@@ -23,9 +23,8 @@ export class Test2Component implements OnInit {
 
   ngOnInit() { 
      this.load(); 
-   
   }
-  
+
   load(){
     let data = [
       {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
@@ -82,49 +81,44 @@ export class Test2Component implements OnInit {
       {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	876,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
       {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
       {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
-      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	344,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
-      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:987,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 2:40',x_hz:	2.54,    x_amp:	345,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 3:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
       {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
       {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
-      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	345,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 2:40',x_hz:	2.54,    x_amp:	345,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 3:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
       {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 0:40',x_hz:	2.54,    x_amp:	345,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
       {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
-      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	542,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
-      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	908,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
-      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	876,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
-      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
-      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
-      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	344,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
-      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:987,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
-      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
-      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
-      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	345,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
-      {timestamp : '2018-04-11 1:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2}
+      {timestamp : '2018-04-11 2:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 3:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 4:40',x_hz:	2.54,    x_amp:	345,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 5:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 6:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 7:40',x_hz:	2.54,    x_amp:	345,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2},
+      {timestamp : '2018-04-11 8:40',x_hz:	2.54,    x_amp:	959.57,   y_hz:	3.07, y_amp:	1866.1, z_hz:	5.25,  z_amp:	2582.55	  ,no :2}
     ];
     // this.http.get('/v/fft')
     // .subscribe((items:any)=>{
     //   this.data = items.json();
     //   //this.fft_no = items[0].timestamp;
-    this.data = data; 
-      console.log(this.data);
-      let len = this.data.length;
-      if(len > 60)
-      len = 60;
+      this.data = data; 
+      let len = this.data.length-1;
       /* x axi*/
       let Arr:Array<any>=[];
-      for(let i = 0; i < len ; i++)
+      
+      for(let i = 60, j = 0; i >= 0 ; i--)
       {
-        
-         console.log(this.data[i])
-        this.lineChartData[0].data[i] = this.data[i].x_amp;
-        this.lineChartData[1].data[i] = this.data[i].y_amp;
-        this.lineChartData[2].data[i] = this.data[i].z_amp;
-        Arr.push(this.data[i].timestamp)
+         console.log(len-i, this.data[len-i])
+        this.lineChartData[0].data[j] = this.data[len-i].x_amp;
+        this.lineChartData[1].data[j] = this.data[len-i].y_amp;
+        this.lineChartData[2].data[j] = this.data[len-i].z_amp;
+        Arr.push(this.data[len-i].timestamp)
+        j++;
         // this.lineChartLabels[i] = this.data[i].timestamp;
         // this.data[i].timestamp
-      }
+      }      
       this.lineChartLabels = Arr;
-
   //})
   }
   public lineChartData:Array<any> = [
