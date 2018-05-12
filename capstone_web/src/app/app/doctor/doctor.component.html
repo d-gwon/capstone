@@ -1,0 +1,155 @@
+<!-- START PAGE CONTAINER 
+<div class="page-container">-->
+    <div class="page-container page-navigation-toggled page-container-wide">
+          
+        <!-- START PAGE SIDEBAR -->
+        <div class="page-sidebar page-sidebar-fixed scroll mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar mCS_disabled" style="height: 974px;"><div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0"><div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
+            <!-- START X-NAVIGATION -->
+            <ul class="x-navigation x-navigation-minimized">
+                <li class="xn-logo">
+                    <a href="index.html">Docutor</a>
+                    <a href="#" class="x-navigation-control"></a>
+                </li>
+                <li class="xn-profile">
+                    <a href="#" class="profile-mini">
+                        <img src="assets/images/users/avatar.jpg" alt="John Doe">
+                    </a>
+                    <div class="profile">
+                        <div class="profile-image">
+                            <img src="assets/images/users/avatar.jpg" alt="John Doe">
+                        </div>
+                        <div class="profile-data">
+                            <div class="profile-data-name">Docutor</div>
+                            <div class="profile-data-title">Parkinson's disease researcher</div>
+                        </div>
+                        <div class="profile-controls">
+                            <a href="pages-profile.html" class="profile-control-left"><span class="fa fa-info"></span></a>
+                            <a href="pages-messages.html" class="profile-control-right"><span class="fa fa-envelope"></span></a>
+                        </div>
+                    </div>                                                                        
+                </li>
+                <li class="xn-title">Navigation</li>
+          
+                <li class="xn-title">Components</li>
+                <li class="xn-openable">
+                  <a class="active" (click)="move_add()"><span class="fa fa-plus"></span> <span class="xn-text"></span></a>          
+                  <a href="#"><span class="fa fa-cogs"></span> <span class="xn-text"></span></a>     
+                </li>                   
+            </ul>
+            <!-- END X-NAVIGATION -->
+        </div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; height: 0px; top: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
+        <!-- END PAGE SIDEBAR -->
+        
+        <!-- PAGE CONTENT -->
+        <div class="page-content" style="height: 974px;">
+            
+            <!-- START X-NAVIGATION VERTICAL -->
+            <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
+                <!-- SEARCH -->
+                <li class="xn-search">
+                    <form role="form">
+                        <input type="text" name="search" placeholder="Search...">
+                    </form>
+                </li>   
+                <!-- END SEARCH -->
+                <!-- SIGN OUT -->
+                <li class="xn-icon-button pull-right">
+                    <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>                        
+                </li> 
+                <!-- END SIGN OUT -->
+            </ul>
+            <!-- END X-NAVIGATION VERTICAL -->                     
+            
+  
+        <!-- START BREADCRUMB -->
+        <ul class="breadcrumb">
+            <li><a href="#">Home</a></li>                    
+            <li class="active">Doctor</li>
+        </ul>
+            <!-- END BREADCRUMB -->                                                
+                            
+            <!-- START CONTENT FRAME -->
+            <div class="content-frame">     
+                <!-- START CONTENT FRAME TOP -->
+                <div class="content-frame-top">                        
+                    <div class="page-title">                    
+                        <h2><span class="fa fa-arrow-circle-o-left"></span> Patients</h2>
+                    </div>                                                
+                    <div class="pull-right">
+                        <button class="btn btn-default content-frame-left-toggle"><span class="fa fa-bars"></span></button>
+                    </div>                                
+                   <!-- PAGE CONTENT -->
+      <div class="page-container page-navigation-toggled page-container-wide">
+            
+            <div class="row">
+                <div class="col-md-3" *ngFor="let data of datas">
+                    <!-- CONTACT ITEM -->
+                    <div class="panel panel-default" (click)="person(data.user_no)">
+                        <div class="panel-body profile">
+                            <div class="profile-image">
+                                <img src="/assets/img/main.jpg" alt="Nadia Ali">
+                            </div>
+                            <div class="profile-data">
+                              <div class="profile-data-name">{{data.name}}</div>
+                              <div class="profile-data-title">Patient</div>
+                          </div>
+                          <div class="profile-controls">
+                              <a href="#" class="profile-control-left"><span class="fa fa-info"></span></a>
+                              <a href="#" class="profile-control-right"><span class="fa fa-phone"></span></a>
+                          </div>
+                      </div>                                
+                      <div class="panel-body">                                    
+                          <div class="contact-info">
+                              <p *ngIf="data.gender==0"><small>Sex</small><br>{{man}}</p>
+                              <p *ngIf="data.gender==1"><small>Sex</small><br>{{woman}}</p>
+                              <p><small>Brithday</small><br>{{data.birth}}</p>
+                              <p><small>Parkinson's Score</small><br>{{data.parkinson}}</p>                                   
+                          </div>
+                        </div>                                
+                    </div>
+                    <!-- END CONTACT ITEM -->
+                </div>
+                        
+            </div>
+          
+  
+    </div>                      <!-- END CONTENT FRAME BODY -->
+                
+            </div>
+            <!-- END CONTENT FRAME -->
+  
+        </div>            
+        <!-- END PAGE CONTENT -->
+    </div>
+            
+        <!-- END PAGE CONTENT -->
+  <!-- </div>
+    END PAGE CONTAINER -->
+  
+  
+            <!-- START THIS PAGE PLUGINS-->        
+            <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>        
+            <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+            <script type="text/javascript" src="js/plugins/scrolltotop/scrolltopcontrol.js"></script>
+            
+            <script type="text/javascript" src="js/plugins/morris/raphael-min.js"></script>
+            <script type="text/javascript" src="js/plugins/morris/morris.min.js"></script>       
+            <script type="text/javascript" src="js/plugins/rickshaw/d3.v3.js"></script>
+            <script type="text/javascript" src="js/plugins/rickshaw/rickshaw.min.js"></script>
+            <script type='text/javascript' src='js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'></script>
+            <script type='text/javascript' src='js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'></script>                
+            <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>                
+            <script type="text/javascript" src="js/plugins/owl/owl.carousel.min.js"></script>                 
+            
+            <script type="text/javascript" src="js/plugins/moment.min.js"></script>
+            <script type="text/javascript" src="js/plugins/daterangepicker/daterangepicker.js"></script>
+            <!-- END THIS PAGE PLUGINS-->        
+    
+            <!-- START TEMPLATE -->
+            <script type="text/javascript" src="js/settings.js"></script>
+            
+            <script type="text/javascript" src="js/plugins.js"></script>        
+            <script type="text/javascript" src="js/actions.js"></script>
+            
+            <script type="text/javascript" src="js/demo_dashboard.js"></script>
+            <!-- END TEMPLATE -->

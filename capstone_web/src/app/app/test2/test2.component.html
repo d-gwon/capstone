@@ -1,0 +1,34 @@
+<!-- START SALES & EVENTS BLOCK -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title-box" >
+       <h3> The FFT result</h3>
+       <span>Power of hand tremble for a specific time</span>
+   </div>
+   <ul class="panel-controls" style="margin-top: 2px;">
+       <li ><input type="datetime-local" style="height:30px" [(ngModel)]="datetime" mobiscroll-date="dateSettings" placeholder="yyyy-MM-dd HH" ng-change="string" required  /></li>  
+       <!-- <li><input type="time" style="height:30px" id="exampleInput" name="input" ng-model="example.value" placeholder="HH"  ng-change="string"  required/></li> -->
+       <!-- <li><input type="submit" style="height:30px"></li> -->
+       <li><button class="button-block" style="height:30px" (click)="submit()">submit</button></li>
+       <li><a href="/personal#test2" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>              
+   </ul>
+  </div>
+<div class="panel-body padding-0">
+<div class="row">
+<div class="col-md-24">
+  <div style="display: block;">
+    <canvas baseChart width="400" height=150%
+       [datasets]="lineChartData"
+       [labels]="lineChartLabels"
+       [options]="lineChartOptions"
+       [colors]="lineChartColors"
+       [legend]="lineChartLegend"
+       [chartType]="lineChartType"
+       (chartHover)="chartHovered($event)"
+       (chartClick)="chartClicked($event)"></canvas>
+  </div>
+</div>
+</div>                          
+</div>
+
+</div>
