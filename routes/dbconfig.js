@@ -1,4 +1,4 @@
-module.exports =
+//module.exports =
 // {
 //     host: '10.0.0.1',
 //     user: 'audgn0811',
